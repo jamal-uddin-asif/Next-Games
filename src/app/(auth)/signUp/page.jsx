@@ -57,6 +57,7 @@ const Register = () => {
           onSubmit={handleSubmit(handleRegister)}
           className="card-body  min-w-sm"
         >
+          <h1 className="text-xl font-bold mb-2">Register in Next Games</h1>
           <fieldset className="fieldset">
             {/* Name  */}
             <label className="label">Name</label>
@@ -105,12 +106,12 @@ const Register = () => {
             <div>
               {/* <a className="link link-hover">Forgot password?</a> */}
             </div>
+          <p>Already have an account?<Link className="text-blue-500 ml-1" href='/signIn'>SignIn</Link> </p>
             <button className="btn btn-neutral mt-4 text-amber-600 bg-amber-300">
               Register
             </button>
             <SocialSignIn></SocialSignIn>
           </fieldset>
-          <p>Already have an account?<Link href='/signIn'>SignIn</Link> </p>
         
         </form>
       </div>

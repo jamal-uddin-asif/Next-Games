@@ -30,6 +30,7 @@ const SignIn = () => {
         onClick={handleSubmit(handleSignIn)}
           className="card-body  min-w-sm"
         >
+          <h1 className="text-3xl font-bold text-secondary">Welcome back</h1>
           <fieldset className="fieldset">
           
             {/* email  */}
@@ -57,12 +58,12 @@ const SignIn = () => {
             <div>
               {/* <a className="link link-hover">Forgot password?</a> */}
             </div>
-            <button className="btn btn-neutral mt-4 text-amber-600 bg-amber-300">
+          <p>New in Next Games?<Link className="link-hover text-blue-600 ml-1" href='/signUp'>SignUp</Link> </p>
+            <button className="btn btn-neutral mt-4  bg-primary">
               Login
             </button>
             <SocialSignIn></SocialSignIn>
           </fieldset>
-          <p>New in Next Games?<Link className="link-hover" href='/signUp'>SignUp</Link> </p>
         
         </form>
       </div>

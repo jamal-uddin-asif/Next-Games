@@ -36,7 +36,7 @@ console.log(user)
   );
 
   return (
-    <div className="navbar  shadow-sm">
+    <div className="navbar ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -89,8 +89,15 @@ console.log(user)
             </div>
             <ul
               tabIndex="-1"
-              className="absolute right-1  dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+              className="absolute z-10 right-1  dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
             >
+              <div className="p-2 shadow bg-amber-50">
+                <div className="flex  items-center">
+                  <Image className="rounded-full mr-1" src={user?.photoURL} width={20} height={20} alt=""></Image>
+                <p>{user?.displayName}</p>
+                </div>
+                <p>{user?.email}</p>
+              </div>
               <li>
                 <Link href={'/addGame'}>Add Game</Link>
               </li>
