@@ -2,12 +2,14 @@
 import { useAuth } from "@/Hooks/useAuth";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const Navber = () => {
   const { user, signOutUser } = useAuth();
-console.log(user)
+  const pathName = usePathname()
+// console.log(user)
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
@@ -20,16 +22,16 @@ console.log(user)
 
   const links = (
     <>
-      <li>
+      <li className={`${pathName === '/'? "text-yellow-400 font-bold text-sm": ''}`}>
         <Link href="/">Home</Link>
       </li>
-      <li>
+      <li className={`${pathName === '/games'? "text-yellow-400 font-bold text-sm": ''}`}>
         <Link href="/games">Games</Link>
       </li>
-      <li>
+      <li className={`${pathName === '/addGame'? "text-yellow-400 font-bold text-sm": ''}`}>
         <Link href="addGame">Add Game</Link>
       </li>
-      <li>
+      <li className={`${pathName === '/manageGames'? "text-yellow-400 font-bold text-sm": ''}`}>
         <Link href="manageGames">Manage |Game</Link>
       </li>
     </>
@@ -110,7 +112,7 @@ console.log(user)
             </ul>
           </div>
         ) : (
-          <Link href={"/signIn"}>SignIn</Link>
+          <Link className="btn btn-outline" href={"/signIn"}>SignIn</Link>
         )}
       </div>
     </div>

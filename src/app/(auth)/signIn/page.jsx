@@ -3,6 +3,7 @@
 import SocialSignIn from "@/Components/SocialSignIn/SocialSignIn";
 import { useAuth } from "@/Hooks/useAuth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,12 +11,14 @@ import toast from "react-hot-toast";
 const SignIn = () => {
   const {signInUser} = useAuth()
   const {register, handleSubmit, formState: {errors}} = useForm()
+  const router = useRouter()
 
   const handleSignIn = (data) =>{
 
     signInUser(data.email, data.password)
     .then(result=>{
       console.log(result)
+      router.push('/')
       toast.success("SignIn successful")
     })
     .catch(err=>{
@@ -58,8 +61,8 @@ const SignIn = () => {
             <div>
               {/* <a className="link link-hover">Forgot password?</a> */}
             </div>
-          <p>New in Next Games?<Link className="link-hover text-blue-600 ml-1" href='/signUp'>SignUp</Link> </p>
-            <button className="btn btn-neutral mt-4  bg-primary">
+          <p>New in Next Games?<Link className="link-hover text-blue ml-1" href='/signUp'>SignUp</Link> </p>
+            <button className="btn btn-neutral mt-4  bg-secondary">
               Login
             </button>
             <SocialSignIn></SocialSignIn>

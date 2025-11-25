@@ -1,18 +1,42 @@
 "use client";
+import Loading from "@/Components/Loading/Loading";
+import { useAuth } from "@/Hooks/useAuth";
+import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const AddGame = () => {
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
+    const {user, loading} = useAuth()
+    const router = useRouter()
+    const {
+      handleSubmit,
+      register,
+      formState: { errors },
+    } = useForm();
+
+    if(loading){
+      return <Loading></Loading>
+    }
+
+    if(!user){
+      return  router.push('/signIn')
+    }
 
   const handleAddGame = (data) =>{
     console.log(data)
-    
+
+    data.created_at = new Date()
+    data.user_email = user?.email;
+
+    axios.post('http://localhost:4000/addGames', data)
+    .then(res=>{
+            if(res.data.insertedId){
+                toast.success('Your game added')
+            }
+    })
 
   }
   return (
@@ -52,8 +76,8 @@ const AddGame = () => {
               {/* Thumbnail  */}
             <label className="label">Thumbnail</label>
             <input
-              type="file"
-              {...register("thumbnail" , {required: true})}
+              type="url"
+              {...register("thumbnail" )}
               className="input w-full"
               placeholder="Thumbnail"
             />

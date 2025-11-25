@@ -4,6 +4,7 @@ import SocialSignIn from "@/Components/SocialSignIn/SocialSignIn";
 import { useAuth } from "@/Hooks/useAuth";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -11,6 +12,8 @@ import toast from "react-hot-toast";
 const Register = () => {
   const { register, handleSubmit, formState: {errors} } = useForm();
   const { createUser, updateUserProfile} = useAuth();
+  const router = useRouter()
+
 
   const handleRegister = (data) => {
 
@@ -35,6 +38,7 @@ const Register = () => {
             }
           updateUserProfile(profile)
           .then(()=>{
+            router.push('/')
             console.log('Profile update successful')
           })
           .catch(err=>{
@@ -57,7 +61,7 @@ const Register = () => {
           onSubmit={handleSubmit(handleRegister)}
           className="card-body  min-w-sm"
         >
-          <h1 className="text-xl font-bold mb-2">Register in Next Games</h1>
+          <h1 className="text-xl font-bold text-secondary mb-2">Register in Next Games</h1>
           <fieldset className="fieldset">
             {/* Name  */}
             <label className="label">Name</label>
@@ -107,7 +111,7 @@ const Register = () => {
               {/* <a className="link link-hover">Forgot password?</a> */}
             </div>
           <p>Already have an account?<Link className="text-blue-500 ml-1" href='/signIn'>SignIn</Link> </p>
-            <button className="btn btn-neutral mt-4 text-amber-600 bg-amber-300">
+            <button className="btn btn-neutral mt-4 text-amber-600 bg-secondary text-black">
               Register
             </button>
             <SocialSignIn></SocialSignIn>

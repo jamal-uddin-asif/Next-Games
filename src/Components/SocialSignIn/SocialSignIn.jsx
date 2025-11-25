@@ -1,16 +1,19 @@
 
 import { useAuth } from "@/Hooks/useAuth";
+import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const SocialSignIn = () => {
     const {googleSingIn} = useAuth()
+  const router = useRouter()
 
     const handleGoogleSignin = () =>{
         console.log('google signin')
         googleSingIn()
         .then(result=>{
-            console.log(result)
+            // console.log(result)
+            router.push('/')
             toast.success("SignIn successful")
         })
         .catch(error=>{
