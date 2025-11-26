@@ -20,7 +20,7 @@ const GamesDetails =  () => {
 
   return (
     <MyContainer>
-    <div className="flex-col flex md:flex-row justify-center gap-10 min-h-[80vh]">
+    <div className="flex-col p-2 flex md:flex-row justify-center gap-10 min-h-[80vh]">
       <div className="flex-1 mx-auto ">
        <Image alt={data?.title} height={500} width={500} src={data?.thumbnail}></Image>
       </div>

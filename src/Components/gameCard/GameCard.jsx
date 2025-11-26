@@ -10,7 +10,7 @@ const GameCard = ({ game }) => {
   return (
     <div className="card bg-base-100 hover:-translate-y-5 transition ease-in-out shadow-sm">
       <figure className="relative w-full h-[200px]">
-        <Image className="object-cover" alt="" fill src={thumbnail}></Image>
+        <Image className="object-cover" alt={title} fill src={thumbnail}></Image>
       </figure>
       <div className="card-body">
         <h2 className="card-title">

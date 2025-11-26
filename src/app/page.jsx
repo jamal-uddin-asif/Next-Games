@@ -30,7 +30,7 @@ export default function Home() {
         <HeroSlider></HeroSlider>
       </div>
       <div className="text-center space-y-2 my-10">
-        <h1 className="text-3xl font-bold">Gear Up For Action</h1>
+        <h1 className="text-3xl  font-bold">Gear Up For Action</h1>
         <p>Jump into intense battles and prove your power.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">

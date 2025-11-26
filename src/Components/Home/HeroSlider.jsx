@@ -24,12 +24,12 @@ const HeroSlider = () => {
      <div className="h-[300px] relative  ">
               <Image
                 className="object-cover rounded-xl"
-                alt=""
+                alt='Hero Banner'
                 src={banner}
                 fill
                 loading="eager"
               ></Image>
-              <div className="inset-0 absolute space-y-2 flex flex-col justify-center items-center">
+              <div className="inset-0 text-center absolute space-y-2 flex flex-col justify-center items-center">
                 <h1 className="text-3xl font-bold text-white">
                  Welcome to Next-Level Gaming, Starts Now
                 </h1>
@@ -39,33 +39,6 @@ const HeroSlider = () => {
               </div>
             </div>
 
-      {/* <div className=" relative ">
-        <Swiper
-        
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        
-        navigation={true}
-           autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Pagination, Autoplay]}
-        className="mySwiper "
-      >
-        
-
-        {
-          slider.map((s, i)=>  <SwiperSlide key={i}><Image className=" rounded-2xl" src={s} fill alt=""></Image></SwiperSlide>)
-        }
-   
-
-      </Swiper>
-
-       
-      </div> */}
     </div>
   );
 };

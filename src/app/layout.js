@@ -24,16 +24,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" >
+    <html lang="en" data-theme=''>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          <Navber></Navber>
-          {children}
-          <Footer></Footer>
+          <header className="sticky top-0 z-10 ">
+            <Navber></Navber>
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer></Footer>
+          </footer>
         </AuthProvider>
-         <Toaster />
+        <Toaster />
       </body>
     </html>
   );

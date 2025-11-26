@@ -74,7 +74,7 @@ const ManageGames = () => {
                     <th>{i + 1}</th>
                     <td className="text-blue-900 font-semibold">{game?.title}</td>
                     <td>
-                      <div className="badge badge-primary">
+                      <div className="badge badge-secondary">
                         {game?.category}
                       </div>
                     </td>

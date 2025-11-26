@@ -22,24 +22,24 @@ const Navber = () => {
 
   const links = (
     <>
-      <li className={`${pathName === '/'? "text-yellow-400 font-bold text-sm": ''}`}>
+      <li className={`${pathName === '/'? "text-secondary font-bold ": ''}`}>
         <Link href="/">Home</Link>
       </li>
-      <li className={`${pathName === '/games'? "text-yellow-400 font-bold text-sm": ''}`}>
+      <li className={`${pathName === '/games'? "text-secondary font-bold ": ''}`}>
         <Link href="/games">Games</Link>
       </li>
-      <li className={`${pathName === '/addGame'? "text-yellow-400 font-bold text-sm": ''}`}>
+      <li className={`${pathName === '/addGame'? "text-secondary font-bold ": ''}`}>
         <Link href="addGame">Add Game</Link>
       </li>
-      <li className={`${pathName === '/manageGames'? "text-yellow-400 font-bold text-sm": ''}`}>
-        <Link href="manageGames">Manage |Game</Link>
+      <li className={`${pathName === '/manageGames'? "text-secondary font-bold ": ''}`}>
+        <Link href="manageGames">Manage Games</Link>
       </li>
     </>
   );
 
   return (
     <div className="navbar ">
-      <div className="navbar-start">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -65,8 +65,8 @@ const Navber = () => {
             {links}
           </ul>
         </div>
-        <Link href={"/"} className=" text-xl text-secondary">
-          Next Games
+        <Link href={"/"} className=" text-xl font-bold text-secondary">
+          Next <span className="text-purple-800">Games</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -75,7 +75,7 @@ const Navber = () => {
       <div className="navbar-end relative">
         <div className=" hidden lg:flex">
 
-        <ul className="menu menu-horizontal px-1 ">{links}</ul>
+        <ul className=" menu-horizontal px-1 space-x-7 mr-4 ">{links}</ul>
         </div>
         {user ? (
           <div className="dropdown dropdown-hover">
@@ -93,12 +93,12 @@ const Navber = () => {
               tabIndex="-1"
               className="absolute z-10 right-1  dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
             >
-              <div className="p-2 shadow bg-amber-50">
+              <div className="p-2 text-black font-semibold shadow bg-amber-50">
                 <div className="flex  items-center">
                   <Image className="rounded-full mr-1" src={user?.photoURL} width={20} height={20} alt=""></Image>
                 <p>{user?.displayName}</p>
                 </div>
-                <p>{user?.email}</p>
+                <p>Email: {user?.email}</p>
               </div>
               <li>
                 <Link href={'/addGame'}>Add Game</Link>
@@ -107,7 +107,7 @@ const Navber = () => {
                 <Link href={'/manageGames'}>Manage Games</Link>
               </li>
               <li>
-                <button onClick={handleSignOut}>SignOut</button>
+                <button className="btn btn-outline" onClick={handleSignOut}>SignOut</button>
               </li>
             </ul>
           </div>

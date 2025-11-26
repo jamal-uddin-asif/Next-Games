@@ -31,7 +31,7 @@ const Games = () => {
             fill
             loading="eager"
           ></Image>
-          <div className="inset-0 absolute space-y-2 flex flex-col justify-center items-center">
+          <div className="inset-0 text-center absolute space-y-2 flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold text-white">
               Next-Level Gaming Starts Now
             </h1>
@@ -64,7 +64,7 @@ const Games = () => {
      
         <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
           {loading ? (
-            <div>
+            <div className="col-span-full">
               <Loading></Loading>
             </div>
           ) : (

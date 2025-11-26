@@ -58,9 +58,7 @@ const SignIn = () => {
             {
               errors.password?.type === 'required' && <p  className="text-red-500">Password is required</p>
             }
-            <div>
-              {/* <a className="link link-hover">Forgot password?</a> */}
-            </div>
+            
           <p>New in Next Games?<Link className="link-hover text-blue ml-1" href='/signUp'>SignUp</Link> </p>
             <button className="btn btn-neutral mt-4  bg-secondary">
               Login

@@ -110,7 +110,7 @@ const AddGame = () => {
                {errors.fullDescription?.type === "required" && (
                 <p className="text-red-500">Full Description is required</p>
               )}
-              <button className="btn btn-neutral mt-4  bg-primary">
+              <button className="btn  mt-4 text-white text-xl bg-secondary">
                 Add Game
               </button>
         </form>

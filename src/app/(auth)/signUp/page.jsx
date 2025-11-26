@@ -22,6 +22,7 @@ const Register = () => {
     createUser(data.email, data.password)
     .then(result=>{
         console.log(result)
+        router.push('/')
 
         const formData = new FormData()
         formData.append('image', profilePhoto)
@@ -38,7 +39,6 @@ const Register = () => {
             }
           updateUserProfile(profile)
           .then(()=>{
-            router.push('/')
             console.log('Profile update successful')
           })
           .catch(err=>{
