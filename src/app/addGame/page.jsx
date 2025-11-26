@@ -31,7 +31,7 @@ const AddGame = () => {
     data.created_at = new Date()
     data.user_email = user?.email;
 
-    axios.post('http://localhost:4000/addGames', data)
+    axios.post('https://next-games-server.vercel.app/addGames', data)
     .then(res=>{
             if(res.data.insertedId){
                 toast.success('Your game added')
@@ -102,11 +102,11 @@ const AddGame = () => {
             </fieldset>
           </div>
           <label className="label">Short Description</label>
-            <textarea className="p-2 rounded-xl bg-amber-50" placeholder="short Description"  {...register('shortDescription', {required: true})}></textarea>
+            <textarea className="p-2 text-black rounded-xl bg-amber-50" placeholder="short Description"  {...register('shortDescription', {required: true})}></textarea>
              {errors.shortDescription?.type === "required" && (
                 <p className="text-red-500">Short Description is required</p>
               )}
-            <textarea className=" p-2 rounded-xl bg-amber-50" placeholder="Full Description" rows={8} {...register('fullDescription', {required: true})}></textarea>
+            <textarea className=" p-2 text-black rounded-xl bg-amber-50" placeholder="Full Description" rows={8} {...register('fullDescription', {required: true})}></textarea>
                {errors.fullDescription?.type === "required" && (
                 <p className="text-red-500">Full Description is required</p>
               )}

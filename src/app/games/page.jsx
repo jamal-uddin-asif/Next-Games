@@ -14,7 +14,7 @@ const Games = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/games").then((data) => {
+    axios.get("https://next-games-server.vercel.app/games").then((data) => {
       setGames(data.data);
       setLoading(false);
     });

@@ -16,14 +16,10 @@ export default function Home() {
   const [games, setGames] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/latestGames")
+      .get("https://next-games-server.vercel.app/latestGames")
       .then((data) => setGames(data.data));
   }, []);
-  // const res = await axios.get("http://localhost:4000/latestGames");
-  // const games = res.data;
-
-  // console.log(games);
-
+ 
   return (
     <MyContainer>
       <div className="">

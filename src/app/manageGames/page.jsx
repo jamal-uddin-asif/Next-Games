@@ -17,9 +17,8 @@ const ManageGames = () => {
   const route = useRouter();
   
   useEffect(() => {
-    // 'http://localhost:4000/games?email=asif231855@gmail.com'
     axios
-    .get(`http://localhost:4000/games?email=${user?.email}`)
+    .get(`https://next-games-server.vercel.app/games?email=${user?.email}`)
     .then((data) => {
       setGames(data.data);
       setLoading(false);
@@ -35,7 +34,7 @@ const ManageGames = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    axios.delete(`http://localhost:4000/deleteGame/${id}`).then((data) => {
+    axios.delete(`https://next-games-server.vercel.app/deleteGame/${id}`).then((data) => {
       if (data.data.deletedCount) {
         setRefresh(!true);
         toast.success("Deleted game");
