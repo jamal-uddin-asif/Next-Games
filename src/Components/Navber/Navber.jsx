@@ -8,30 +8,42 @@ import toast from "react-hot-toast";
 
 const Navber = () => {
   const { user, signOutUser } = useAuth();
-  const pathName = usePathname()
-// console.log(user)
+  const pathName = usePathname();
+  // console.log(user)
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
         toast.success("SignOut successful");
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 
   const links = (
     <>
-      <li className={`${pathName === '/'? "text-secondary font-bold ": ''}`}>
+      <li className={`${pathName === "/" ? "text-secondary font-bold " : ""}`}>
         <Link href="/">Home</Link>
       </li>
-      <li className={`${pathName === '/games'? "text-secondary font-bold ": ''}`}>
+      <li
+        className={`${
+          pathName === "/games" ? "text-secondary font-bold " : ""
+        }`}
+      >
         <Link href="/games">Games</Link>
       </li>
-      <li className={`${pathName === '/addGame'? "text-secondary font-bold ": ''}`}>
+      <li
+        className={`${
+          pathName === "/addGame" ? "text-secondary font-bold " : ""
+        }`}
+      >
         <Link href="addGame">Add Game</Link>
       </li>
-      <li className={`${pathName === '/manageGames'? "text-secondary font-bold ": ''}`}>
+      <li
+        className={`${
+          pathName === "/manageGames" ? "text-secondary font-bold " : ""
+        }`}
+      >
         <Link href="manageGames">Manage Games</Link>
       </li>
     </>
@@ -74,19 +86,17 @@ const Navber = () => {
       </div>
       <div className="navbar-end relative">
         <div className=" hidden lg:flex">
-
-        <ul className=" menu-horizontal px-1 space-x-7 mr-4 ">{links}</ul>
+          <ul className=" menu-horizontal px-1 space-x-7 mr-4 ">{links}</ul>
         </div>
         {user ? (
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className=" m-1">
               <Image
-              className="rounded-full"
-              src={user?.photoURL}
-              alt={user?.displayName}
-              width={30}
-              height={30}
-              
+                className="rounded-full"
+                src={user?.photoURL}
+                alt={user?.displayName}
+                width={30}
+                height={30}
               ></Image>
             </div>
             <ul
@@ -95,24 +105,39 @@ const Navber = () => {
             >
               <div className="p-2 text-black font-semibold shadow bg-amber-50">
                 <div className="flex  items-center">
-                  <Image className="rounded-full mr-1" src={user?.photoURL} width={20} height={20} alt=""></Image>
-                <p>{user?.displayName}</p>
+                  <Image
+                    className="rounded-full mr-1"
+                    src={user?.photoURL}
+                    width={20}
+                    height={20}
+                    alt=""
+                  ></Image>
+                  <p>{user?.displayName}</p>
                 </div>
                 <p>Email: {user?.email}</p>
               </div>
               <li>
-                <Link href={'/addGame'}>Add Game</Link>
+                <Link href={"/addGame"}>Add Game</Link>
               </li>
               <li>
-                <Link href={'/manageGames'}>Manage Games</Link>
+                <Link href={"/manageGames"}>Manage Games</Link>
               </li>
               <li>
-                <button className="btn btn-outline" onClick={handleSignOut}>SignOut</button>
+                <button className="btn btn-outline" onClick={handleSignOut}>
+                  SignOut
+                </button>
               </li>
             </ul>
           </div>
         ) : (
-          <Link className="btn btn-outline" href={"/signIn"}>SignIn</Link>
+          <div>
+            <Link className="btn btn-outline" href={"/signIn"}>
+              SignIn
+            </Link>
+            <Link className="btn btn-outline ml-1" href={"/signUp"}>
+              Register
+            </Link>
+          </div>
         )}
       </div>
     </div>

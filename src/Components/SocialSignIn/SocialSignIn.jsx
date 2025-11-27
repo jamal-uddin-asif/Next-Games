@@ -9,7 +9,7 @@ const SocialSignIn = () => {
   const router = useRouter()
 
     const handleGoogleSignin = () =>{
-        console.log('google signin')
+        // console.log('google signin')
         googleSingIn()
         .then(result=>{
             // console.log(result)
@@ -17,7 +17,7 @@ const SocialSignIn = () => {
             toast.success("SignIn successful")
         })
         .catch(error=>{
-            console.log(error)
+            // console.log(error)
         })
     }
   return (

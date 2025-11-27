@@ -15,6 +15,7 @@ const AddGame = () => {
       handleSubmit,
       register,
       formState: { errors },
+      reset
     } = useForm();
 
     if(loading){
@@ -26,7 +27,7 @@ const AddGame = () => {
     }
 
   const handleAddGame = (data) =>{
-    console.log(data)
+    // console.log(data)
 
     data.created_at = new Date()
     data.user_email = user?.email;
@@ -35,6 +36,7 @@ const AddGame = () => {
     .then(res=>{
             if(res.data.insertedId){
                 toast.success('Your game added')
+                reset()
             }
     })
 

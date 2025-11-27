@@ -17,12 +17,13 @@ const SignIn = () => {
 
     signInUser(data.email, data.password)
     .then(result=>{
-      console.log(result)
+      // console.log(result)
       router.push('/')
       toast.success("SignIn successful")
     })
     .catch(err=>{
-      console.log(err)
+      toast.error(err.code)
+      // console.log(err)
     })
   }
 

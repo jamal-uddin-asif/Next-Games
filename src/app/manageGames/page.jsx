@@ -33,7 +33,7 @@ const ManageGames = () => {
     }
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     axios.delete(`https://next-games-server.vercel.app/deleteGame/${id}`).then((data) => {
       if (data.data.deletedCount) {
         setRefresh(!true);

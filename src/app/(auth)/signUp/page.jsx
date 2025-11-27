@@ -21,7 +21,7 @@ const Register = () => {
 
     createUser(data.email, data.password)
     .then(result=>{
-        console.log(result)
+        // console.log(result)
         router.push('/')
 
         const formData = new FormData()
@@ -31,7 +31,7 @@ const Register = () => {
         const ImageApiUrl = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMAGEBB_HOST_KEY}`
         axios.post(ImageApiUrl, formData)
         .then(result=>{
-            console.log('Image after post',result.data.data.url)
+            // console.log('Image after post',result.data.data.url)
 
             const profile = {
               displayName:data.name,
@@ -39,18 +39,19 @@ const Register = () => {
             }
           updateUserProfile(profile)
           .then(()=>{
-            console.log('Profile update successful')
+            // console.log('Profile update successful')
           })
           .catch(err=>{
-            console.log(err)
+            
+            // console.log(err)
           })
         })
         .catch(err=>{
-            console.log(err)
+            // console.log(err)
         })
     })
     .catch(err=>{
-        console.log(err)
+        // console.log(err)
     })
   };
 

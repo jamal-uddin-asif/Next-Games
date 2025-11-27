@@ -5,7 +5,7 @@ import React from "react";
 
 const GameCard = ({ game }) => {
   const handleDetailsBtn = () => {};
-  console.log(game);
+  // console.log(game);
   const { _id, thumbnail, shortDescription, title, size } = game;
   return (
     <div className="card bg-base-100 hover:-translate-y-5 transition ease-in-out shadow-sm">
